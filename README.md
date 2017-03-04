@@ -15,7 +15,8 @@ using a max value limit)
 Steps for creation:
 
 1.Use arduino and HC-05 to send values from arduino to mobile phone using bluetooth
-2.download cordova and build the project
-3.Open bluetooth on mobile device and connect the HC-05
+
+2.download cordova and build the project <br>
+3.Open bluetooth on mobile device and connect the HC-05 <br>
 4.Click on connect to get real time data from HC-05 to mobile 
 
