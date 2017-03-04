@@ -1,5 +1,6 @@
 # cordova_arduino_and_bluetooth_plotting
 Cordova simple app for plotting values using an HC-05 bluetooth ,  arduino uno and epoch js library. <br>
+Based on examples : https://github.com/don/BluetoothSerial <br>
 
 This project created in order to plot values coming from a cardiograph (ECG) to mobile phone using 
 a bluetooth HC-05 module and arduino.
