@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Bio App</title>        
+        <link rel="stylesheet" type="text/css" href="http://epochjs.github.io/epoch/css/epoch.css">
+    </head>
+    <style >
+        #area{
+            border: solid green 2px;
+            border-radius: 5px;
+        }
+        #pulses{
+            margin-top: 1em;
+            padding: 0.5em;
+            border: solid green 2px;
+            border-radius: 5px;
+            font-size:1em;
+        }
+        #pulses_output{  
+            font-size:2em;
+            text-align: center;
+        }
+        #message{
+            word-wrap: break-word;
+            margin-top: 1em;
+            margin-bottom: 1em;
+            padding: 1em;
+            border: solid green 2px;
+            border-radius: 5px;
+            font-size:1em;
+            text-align: center;
+        }
+        #connectButton{
+            width: 305px;
+            height: 40px;
+            background-color: red;
+        }
+       body{
+           background-color: #c0cbdb !important;
+       }
+       #plot_title{
+        font-size:1em;
+        margin-top: 0.1em;
+        margin-bottom: 0.1em;
+       }
+   </style>
+   
+
+    <body>
+        <div class="app">
+            <div id="ui">
+                <button id="connectButton">Connect</button>
+            </div>
+            <div id="message" >List of Devices: </div>
+        </div>
+        <div id="plot_title">Real time plot:</div>
+        <div id="area" class="epoch category10" style="height: 200px;"></div>
+        <div id="chartContainer"></div>  
+        <div id="pulses"  style="height: 50px;">Pulses/second:<div id="pulses_output">0</div></div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+        <!--<script type="text/javascript" src="http://epochjs.github.io/epoch/js/jquery.js"></script> -->
+        <script type="text/javascript" src="js/jquery.js"></script>
+        <!--<script src="http://epochjs.github.io/epoch/js/d3.js"></script>-->
+        <script src="js/d3.js"></script>
+        <!--<script src="http://epochjs.github.io/epoch/js/epoch.js"></script> -->
+        <script src="js/epoch.js"></script>
+        <script src="js/data.js"></script>
+        
+        <script>
+            app.initialize();
+            var data = new RealTimeData(2);
+            var chart = $('#area').epoch({
+            type: 'time.line',
+            data: data.history(),
+            axes: ['left', 'bottom', 'right'],
+            windowSize:10,
+            historySize: 50
+           });
+           setInterval(function() { 
+                chart.push(data.next());
+                count_pulses();
+           }, 10);
+            chart.push(data.next());
+
+          //settings for pulses counter
+          var counter_of_pulses=0;
+          var pulses_per_minute=0;
+          var flag=0;
+          var start_time;
+          var end_time;
+          var up_limit=130;
+          var down_limit=40; 
+
+
+         function count_pulses() { 
+            //this function counts the heart beat /  pulses of heart
+            // we count four pulses(signal over a limit=0.6v) and we get the time stamp 
+            // of start and end .
+            //then we calculate how many pulses per second has the user .
+            //console.log(global_data);
+           if(global_data>80 && flag==0){
+              counter_of_pulses++;
+              if(counter_of_pulses==1){ start_time=Date.now(); }
+              if(counter_of_pulses==4  ){ //count 4 pulses
+                end_time=Date.now();  
+                counter_of_pulses=0;
+                pulses_per_minute=240*1000/(end_time-start_time); //*1000 to convert ms to seconds
+                $("#pulses_output").html(Math.floor(pulses_per_minute));
+                if(pulses_per_minute>up_limit  || pulses_per_minute<down_limit ){
+                    console.log("beeppppp");
+                    alert("Dangerous Situation!");  
+                }
+            }
+            flag=1;
+           }
+           if(global_data<80 && flag==1){  flag=0; }
+         }
+    </script>   
+    </body>
+</html>
