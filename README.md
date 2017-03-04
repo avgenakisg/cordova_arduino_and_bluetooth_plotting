@@ -1,14 +1,14 @@
 # cordova_arduino_and_bluetooth_plotting
-Cordova simple app for plotting values using an HC-05 bluetooth ,  arduino uno and epoch js library.
+Cordova simple app for plotting values using an HC-05 bluetooth ,  arduino uno and epoch js library. <br>
 
 This project created in order to plot values coming from a cardiograph (ECG) to mobile phone using 
 a bluetooth HC-05 module and arduino.
 
-I created a very simple design.
-*In the first box we can read the data comming from serial port
-*In the second box I plot the values comming from bluetooth using epoch js real time plotting
+I created a very simple design. <br>
+*In the first box we can read the data comming from serial port <br> 
+*In the second box I plot the values comming from bluetooth using epoch js real time plotting <br>
 *In the third box I count Pulses/second using a simple algorithm (count the time and the number of spikes 
-using a max value limit)
+using a max value limit) <br>
 
 ![alt tag](screen.png)
 
