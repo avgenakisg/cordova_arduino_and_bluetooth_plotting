@@ -2,7 +2,11 @@
 
 [![Build Status](https://img.shields.io/github/stars/avgenakisg/cordova_arduino_and_bluetooth_plotting.svg)](https://github.com/avgenakisg/cordova_arduino_and_bluetooth_plotting)
 [![Build Status](https://img.shields.io/github/forks/avgenakisg/cordova_arduino_and_bluetooth_plotting.svg)](https://github.com/avgenakisg/cordova_arduino_and_bluetooth_plotting)
-[![Build Status](https://img.shields.io/travis/avgenakisg/cordova_arduino_and_bluetooth_plotting/master.svg)](https://travis-ci.org/avgenakisg/cordova_arduino_and_bluetooth_plotting)
+![Bintray](https://img.shields.io/badge/version-MVP1-yellowgreen.svg)
+
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/uses-js.svg)](http://forthebadge.com)
+[![forthebadge](http://forthebadge.com/images/badges/uses-html.svg)](http://forthebadge.com)
 
 
 Cordova simple app for plotting values using an HC-05 bluetooth ,  arduino uno and epoch js library. <br>
