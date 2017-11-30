@@ -1,4 +1,7 @@
-# cordova_arduino_and_bluetooth_plotting
+# Bluetooth plotting with Cordova and Arduino
+
+[![Build Status](https://img.shields.io/github/stars/avgenakisg/cordova_arduino_and_bluetooth_plotting.svg)](https://github.com/avgenakisg/cordova_arduino_and_bluetooth_plotting)
+
 Cordova simple app for plotting values using an HC-05 bluetooth ,  arduino uno and epoch js library. <br>
 Based on examples : https://github.com/don/BluetoothSerial <br>
 
